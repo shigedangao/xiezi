@@ -1,0 +1,39 @@
+[
+    {
+        "id": 0,
+        "title": "大家好",
+        "content": "大家好",
+        "lang": "TraditionalChinese",
+        "generated": {
+            "大家": {
+                "writing_method": "大家",
+                "second_writing_method": "大家",
+                "pronounciation": "dà jiā",
+                "translation": "everyone,influential family,great expert",
+                "count": 1
+            },
+            "好": {
+                "writing_method": "好",
+                "second_writing_method": "好",
+                "pronounciation": "hǎo,hào",
+                "translation": "good,well,proper,good to,easy to,very,so,(suffix indicating completion or readiness),(of two people) close,on intimate terms,(after a personal pronoun) hello,to be fond of",
+                "count": 1
+            }
+        }
+    },
+    {
+        "id": 1,
+        "title": "大家",
+        "content": "大家",
+        "lang": "TraditionalChinese",
+        "generated": {
+            "大家": {
+                "writing_method": "大家",
+                "second_writing_method": "大家",
+                "pronounciation": "dà jiā",
+                "translation": "everyone,influential family,great expert",
+                "count": 1
+            }
+        }
+    }
+]
