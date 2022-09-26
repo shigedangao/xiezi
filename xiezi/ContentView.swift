@@ -8,19 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var modelData: ModelData
+    @State var xuexiError: LocalizedError?
+    @State var showAlert = false
+    
     var body: some View {
         NavigationView {
             NavbarList()
-            
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                Text("Hello, world!")
-            }
-            .padding()
+                            
+            Editor()
+            Generator()
+                .toolbar {
+                    ToolbarItemGroup {
+                        ToolbarMenu()
+                        Actions()
+                    }
+                }
         }
+        .task {
+            do {
+                let errs = try await xuexiDic.loadDictionaries()
+                print("dictionaries loaded")
+                print(errs)
+                modelData.isLoaded = true
+            } catch {
+                xuexiError = error.localizedDescription
+            }
+        }
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text("error while loading dictionaries \(xuexiError!.localizedDescription)"))
+        })
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

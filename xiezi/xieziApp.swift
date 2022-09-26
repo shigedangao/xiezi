@@ -16,5 +16,6 @@ struct xieziApp: App {
             ContentView()
                 .environmentObject(modelData)
         }
+        .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: true))
     }
 }

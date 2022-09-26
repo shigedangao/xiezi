@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F5BBC6328FC8911002D6EDD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BBC6228FC8911002D6EDD /* Storage.swift */; };
+		2F5BBC6728FC991A002D6EDD /* XuexiDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BBC6628FC991A002D6EDD /* XuexiDecorator.swift */; };
+		2F5BBC6A28FC995D002D6EDD /* XuexiPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F5BBC6928FC995D002D6EDD /* XuexiPackage */; };
+		2F5BD7F128E768940064829B /* GeneratorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD7F028E768940064829B /* GeneratorItem.swift */; };
+		2F5BD7F328E76A600064829B /* GeneratorCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD7F228E76A600064829B /* GeneratorCounter.swift */; };
+		2F5BD7F528E77B2F0064829B /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BD7F428E77B2F0064829B /* ItemList.swift */; };
 		2F73A78328E24555002ABE67 /* NavbarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73A78228E24555002ABE67 /* NavbarList.swift */; };
 		2F73A78928E24854002ABE67 /* note.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDC94928E0FBA900D60775 /* note.json */; };
+		2F73A78B28E24EFB002ABE67 /* NavbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73A78A28E24EFB002ABE67 /* NavbarItem.swift */; };
+		2FC9E6BB28F3643D008CD806 /* ToolbarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E6BA28F3643D008CD806 /* ToolbarMenu.swift */; };
+		2FC9E6BD28F36F4B008CD806 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC9E6BC28F36F4B008CD806 /* Actions.swift */; };
 		2FCDC91528E0F05000D60775 /* xieziApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDC91428E0F05000D60775 /* xieziApp.swift */; };
 		2FCDC91728E0F05000D60775 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDC91628E0F05000D60775 /* ContentView.swift */; };
 		2FCDC91928E0F05100D60775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FCDC91828E0F05100D60775 /* Assets.xcassets */; };
@@ -18,6 +27,9 @@
 		2FCDC93328E0F05100D60775 /* xieziUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDC93228E0F05100D60775 /* xieziUITestsLaunchTests.swift */; };
 		2FCDC94228E0F3F600D60775 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDC94128E0F3F600D60775 /* Note.swift */; };
 		2FCDC94628E0FA5200D60775 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCDC94528E0FA5200D60775 /* ModelData.swift */; };
+		2FE83B9128E4D801006B5399 /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE83B9028E4D801006B5399 /* Editor.swift */; };
+		2FE83B9528E4DC97006B5399 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE83B9428E4DC97006B5399 /* Extension.swift */; };
+		2FE83B9928E4F180006B5399 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE83B9828E4F180006B5399 /* Generator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +50,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F5BBC6228FC8911002D6EDD /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		2F5BBC6528FC9811002D6EDD /* XuexiPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = XuexiPackage; path = "../xuexi-swifty/XuexiPackage"; sourceTree = "<group>"; };
+		2F5BBC6628FC991A002D6EDD /* XuexiDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XuexiDecorator.swift; sourceTree = "<group>"; };
+		2F5BD7F028E768940064829B /* GeneratorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorItem.swift; sourceTree = "<group>"; };
+		2F5BD7F228E76A600064829B /* GeneratorCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorCounter.swift; sourceTree = "<group>"; };
+		2F5BD7F428E77B2F0064829B /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
 		2F73A78228E24555002ABE67 /* NavbarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarList.swift; sourceTree = "<group>"; };
+		2F73A78A28E24EFB002ABE67 /* NavbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarItem.swift; sourceTree = "<group>"; };
+		2FC9E6BA28F3643D008CD806 /* ToolbarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarMenu.swift; sourceTree = "<group>"; };
+		2FC9E6BC28F36F4B008CD806 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		2FCDC91128E0F05000D60775 /* xiezi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = xiezi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FCDC91428E0F05000D60775 /* xieziApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = xieziApp.swift; sourceTree = "<group>"; };
 		2FCDC91628E0F05000D60775 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +74,9 @@
 		2FCDC94128E0F3F600D60775 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		2FCDC94528E0FA5200D60775 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		2FCDC94928E0FBA900D60775 /* note.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = note.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		2FE83B9028E4D801006B5399 /* Editor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
+		2FE83B9428E4DC97006B5399 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		2FE83B9828E4F180006B5399 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F5BBC6A28FC995D002D6EDD /* XuexiPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,13 +105,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F5BBC6428FC9811002D6EDD /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				2F5BBC6528FC9811002D6EDD /* XuexiPackage */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		2F5BBC6828FC995D002D6EDD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F73A78C28E24F05002ABE67 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2F73A78A28E24EFB002ABE67 /* NavbarItem.swift */,
+				2F5BD7F028E768940064829B /* GeneratorItem.swift */,
+				2F5BD7F228E76A600064829B /* GeneratorCounter.swift */,
+				2F5BD7F428E77B2F0064829B /* ItemList.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		2F73A78D28E24F3D002ABE67 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				2F73A78228E24555002ABE67 /* NavbarList.swift */,
+				2FE83B9028E4D801006B5399 /* Editor.swift */,
+				2FE83B9828E4F180006B5399 /* Generator.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		2FC9E6B728F3639D008CD806 /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				2FC9E6BA28F3643D008CD806 /* ToolbarMenu.swift */,
+				2FC9E6BC28F36F4B008CD806 /* Actions.swift */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
 		2FCDC90828E0F05000D60775 = {
 			isa = PBXGroup;
 			children = (
+				2F5BBC6428FC9811002D6EDD /* Packages */,
 				2FCDC91328E0F05000D60775 /* xiezi */,
 				2FCDC92528E0F05100D60775 /* xieziTests */,
 				2FCDC92F28E0F05100D60775 /* xieziUITests */,
 				2FCDC91228E0F05000D60775 /* Products */,
+				2F5BBC6828FC995D002D6EDD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +175,8 @@
 		2FCDC91328E0F05000D60775 /* xiezi */ = {
 			isa = PBXGroup;
 			children = (
+				2F73A78D28E24F3D002ABE67 /* Layouts */,
+				2F73A78C28E24F05002ABE67 /* Components */,
 				2FCDC94828E0FB8A00D60775 /* Resources */,
 				2FCDC91428E0F05000D60775 /* xieziApp.swift */,
 				2FCDC91628E0F05000D60775 /* ContentView.swift */,
@@ -110,7 +184,10 @@
 				2FCDC91D28E0F05100D60775 /* xiezi.entitlements */,
 				2FCDC91A28E0F05100D60775 /* Preview Content */,
 				2FCDC94728E0FA5D00D60775 /* Model */,
-				2F73A78228E24555002ABE67 /* NavbarList.swift */,
+				2FE83B9428E4DC97006B5399 /* Extension.swift */,
+				2FC9E6B728F3639D008CD806 /* Toolbar */,
+				2F5BBC6228FC8911002D6EDD /* Storage.swift */,
+				2F5BBC6628FC991A002D6EDD /* XuexiDecorator.swift */,
 			);
 			path = xiezi;
 			sourceTree = "<group>";
@@ -173,6 +250,9 @@
 			dependencies = (
 			);
 			name = xiezi;
+			packageProductDependencies = (
+				2F5BBC6928FC995D002D6EDD /* XuexiPackage */,
+			);
 			productName = xiezi;
 			productReference = 2FCDC91128E0F05000D60775 /* xiezi.app */;
 			productType = "com.apple.product-type.application";
@@ -288,11 +368,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE83B9128E4D801006B5399 /* Editor.swift in Sources */,
+				2FC9E6BB28F3643D008CD806 /* ToolbarMenu.swift in Sources */,
 				2FCDC91728E0F05000D60775 /* ContentView.swift in Sources */,
 				2F73A78328E24555002ABE67 /* NavbarList.swift in Sources */,
 				2FCDC94628E0FA5200D60775 /* ModelData.swift in Sources */,
+				2F5BBC6728FC991A002D6EDD /* XuexiDecorator.swift in Sources */,
+				2F5BD7F528E77B2F0064829B /* ItemList.swift in Sources */,
+				2F73A78B28E24EFB002ABE67 /* NavbarItem.swift in Sources */,
+				2F5BD7F328E76A600064829B /* GeneratorCounter.swift in Sources */,
 				2FCDC91528E0F05000D60775 /* xieziApp.swift in Sources */,
+				2FE83B9928E4F180006B5399 /* Generator.swift in Sources */,
 				2FCDC94228E0F3F600D60775 /* Note.swift in Sources */,
+				2F5BD7F128E768940064829B /* GeneratorItem.swift in Sources */,
+				2FE83B9528E4DC97006B5399 /* Extension.swift in Sources */,
+				2FC9E6BD28F36F4B008CD806 /* Actions.swift in Sources */,
+				2F5BBC6328FC8911002D6EDD /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +691,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2F5BBC6928FC995D002D6EDD /* XuexiPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = XuexiPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2FCDC90928E0F05000D60775 /* Project object */;
 }

@@ -1,14 +1,15 @@
 [
     {
-        "id": 0,
+        "id": 1,
         "title": "大家好",
         "content": "大家好",
+        "resume": "大家好",
         "lang": "TraditionalChinese",
         "generated": {
             "大家": {
                 "writing_method": "大家",
                 "second_writing_method": "大家",
-                "pronounciation": "dà jiā",
+                "pronounciation": "dà jiā, dà jiā",
                 "translation": "everyone,influential family,great expert",
                 "count": 1
             },
@@ -22,15 +23,16 @@
         }
     },
     {
-        "id": 1,
-        "title": "大家",
-        "content": "大家",
+        "id": 0,
+        "title": "大",
+        "content": "大",
+        "resume": "大",
         "lang": "TraditionalChinese",
         "generated": {
-            "大家": {
-                "writing_method": "大家",
-                "second_writing_method": "大家",
-                "pronounciation": "dà jiā",
+            "大": {
+                "writing_method": "大",
+                "second_writing_method": "大",
+                "pronounciation": "dà",
                 "translation": "everyone,influential family,great expert",
                 "count": 1
             }
