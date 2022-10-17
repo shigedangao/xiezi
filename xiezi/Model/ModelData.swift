@@ -10,7 +10,6 @@ import XuexiPackage
 
 final class ModelData: ObservableObject {
     @Published var notes: [Note] = LoadNotes()
-    // todo add a single note for binding purposes
     @Published var selected: Int = 0
     @Published var language: Language = Language.TraditionalChinese
     @Published var isLoaded: Bool = false
@@ -38,22 +37,26 @@ final class ModelData: ObservableObject {
         let content = notes[selected].content
         let lang = notes[selected].lang
         
-        var xuexiLang: XuexiPackage.Language
+        var xuexiLang: XuexiPackage.XuexiLibLanguage
         switch lang {
         case Language.TraditionalChinese:
-            xuexiLang = XuexiPackage.Language.Chinese
+            xuexiLang = XuexiPackage.XuexiLibLanguage.Chinese
         case Language.SimplifiedChinese:
-            xuexiLang = XuexiPackage.Language.Chinese
+            xuexiLang = XuexiPackage.XuexiLibLanguage.Chinese
         case Language.Laotian:
-            xuexiLang = XuexiPackage.Language.Laotian
+            xuexiLang = XuexiPackage.XuexiLibLanguage.Laotian
         }
         
         if isLoaded {
             let res = xuexiDic.dictionary.search_in_dictionaries(xuexiLang, content)
             if let content = res {
-                let generated = XuexiGenerate.fromJSONDictionary(content: content.toString())
+                var generated = XuexiGenerate.fromJSONDictionary(content: content.toString())
+                // loop on the generated and set a color for each value
+                for i in generated.values.indices {
+                    generated.values[i].color = CColor.random()
+                }
+                
                 notes[selected].generated = generated
-                print(generated)
             }
         }
     }
@@ -96,6 +99,26 @@ final class ModelData: ObservableObject {
         language = notes[selected].lang
         // Persist the change to the notes
         SaveStore(notes: notes)
+    }
+    
+    // Delete a note
+    //
+    // # Description
+    // Delete a note by using the selected index
+    func deleteNote() {
+        if notes.count == 0 {
+            return
+        }
+        
+        // remove the target note for the selected index
+        notes.remove(at: selected)
+        // Persist the change to the notes
+        SaveStore(notes: notes)
+        
+        if selected != 0 {
+            // downgrade selected value
+            selected = selected - 1
+        }
     }
     
     // Getter //

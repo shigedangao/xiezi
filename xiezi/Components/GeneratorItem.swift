@@ -45,7 +45,7 @@ struct GeneratorItem_Previews: PreviewProvider {
             pronounciation: "Qu nian",
             translation: "Last year",
             count: 1,
-            color: Color.random()
+            color: Color.white
         )
     }
 }

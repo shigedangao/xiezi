@@ -24,7 +24,7 @@ struct Generator: View {
                         pronounciation: generated[key]!.pronounciation,
                         translation: generated[key]!.translation,
                         count: generated[key]!.count,
-                        color: Color.random()
+                        color: Color.from_color(cc: generated[key]!.color)
                     )
                 }
             }
@@ -39,7 +39,11 @@ struct Generator: View {
                 generated = items
             }
         }
-        //.onChange(of: modelData., perform: <#T##(Equatable) -> Void##(Equatable) -> Void##(_ newValue: Equatable) -> Void#>)
+        .onChange(of: modelData.getSelectedNote()?.content) { _ in
+            if let items = modelData.getSelectedNoteGeneratedItems() {
+                generated = items
+            }
+        }
     }
 }
 

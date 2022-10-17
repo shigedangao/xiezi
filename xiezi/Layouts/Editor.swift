@@ -24,6 +24,7 @@ struct Editor: View {
                     modelData.setNoteTextualContent(content: newContent)
                     modelData.generateXuexiDefinitions()
                 }
+                .font(.body)
         }
         .background(Color.tertiaryBackground)
         .onAppear {

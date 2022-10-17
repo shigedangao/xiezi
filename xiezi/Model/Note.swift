@@ -39,6 +39,7 @@ struct XuexiGenerate: Hashable, Codable {
     var pronounciation: String
     var translation: String
     var count: Int
+    var color: CColor?
     
     static func fromJSONDictionary(content: String) -> Dictionary<String, XuexiGenerate> {
         let decoder = JSONDecoder()
@@ -53,5 +54,19 @@ struct XuexiGenerate: Hashable, Codable {
         }
         
         return Dictionary()
+    }
+}
+
+struct CColor: Hashable, Codable {
+    var red: Double
+    var green: Double
+    var blue: Double
+    
+    static func random() -> CColor {
+        return CColor(
+            red: Double.random(in: 0.5...1),
+            green: Double.random(in: 0.5...1),
+            blue: Double.random(in: 0.5...1)
+        )
     }
 }

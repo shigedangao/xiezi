@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct Actions: View {
+    @EnvironmentObject var modelData: ModelData
     
     func deleteNote() {
-        print("delete")
+        modelData.deleteNote()
     }
     
     var body: some View {
@@ -23,5 +24,6 @@ struct Actions: View {
 struct Actions_Previews: PreviewProvider {
     static var previews: some View {
         Actions()
+            .environmentObject(ModelData())
     }
 }

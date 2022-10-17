@@ -28,8 +28,10 @@ struct ContentView: View {
         .task {
             do {
                 let errs = try await xuexiDic.loadDictionaries()
-                print("dictionaries loaded")
-                print(errs)
+                if !errs.isEmpty {
+                    throw errs[0]
+                }
+                
                 modelData.isLoaded = true
             } catch {
                 xuexiError = error.localizedDescription

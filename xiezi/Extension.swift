@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public extension Color {
+extension Color {
     static let background = Color(NSColor.windowBackgroundColor)
     static let secondaryBackground = Color(NSColor.underPageBackgroundColor)
     static let tertiaryBackground = Color(NSColor.controlBackgroundColor)
@@ -16,12 +16,16 @@ public extension Color {
     // Generate random color, imported from Apple snippet which can be found below
     //
     // @link: https://developer.apple.com/tutorials/sample-apps/recognizinggestures
-    static func random() -> Color {
-        return Color(
-            red: Double.random(in: 0.5...1),
-            green: Double.random(in: 0.5...1),
-            blue: Double.random(in: 0.5...1)
-        )
+    static func from_color(cc: CColor?) -> Color {
+        if let color = cc {
+            return Color(
+                red: color.red,
+                green: color.green,
+                blue: color.blue
+            )
+        }
+        
+        return Color.white
     }
 }
 

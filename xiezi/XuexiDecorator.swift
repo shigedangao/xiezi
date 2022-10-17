@@ -23,29 +23,18 @@ struct XuexiDictionary {
     // Load the dictionaries within a task group
     // This allow to load the dictionaries concurrently (a bit like task group in Go)
     func loadDictionaries() async throws -> [String] {
-        try await withThrowingTaskGroup(of: (String).self) { group in
-            group.addTask {
-                let res = await dictionary.load_chinese_dictionary(CNVersion.Traditional)
-                return res.toString()
-            }
-            
-            group.addTask {
-                let res = await dictionary.load_chinese_dictionary(CNVersion.Simplified)
-                return res.toString()
-            }
-            
-            group.addTask {
-                let res = await dictionary.load_laotian_dictionary()
-                return res.toString()
-            }
-            
-            var errors = [String]()
-            
-            for try await (msg) in group {
-                errors.append(msg)
-            }
-            
-            return errors
+        async let tw: () = await dictionary.load_chinese_dictionary(XuexiCNVersion.Traditional)
+        async let cn: () = await dictionary.load_chinese_dictionary(XuexiCNVersion.Simplified)
+        async let la: () = await dictionary.load_laotian_dictionary()
+
+        let _ = await [tw, cn, la]
+        
+        var errors = [String]()
+        
+        for err in dictionary.has_errors() {
+            errors.append(err.as_str().toString())
         }
+        
+        return errors
     }
 }
