@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F5039E628FDFB4C00310191 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2F5BBC6228FC8911002D6EDD /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		2F5BBC6528FC9811002D6EDD /* XuexiPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = XuexiPackage; path = "../xuexi-swifty/XuexiPackage"; sourceTree = "<group>"; };
 		2F5BBC6628FC991A002D6EDD /* XuexiDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XuexiDecorator.swift; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 		2FCDC90828E0F05000D60775 = {
 			isa = PBXGroup;
 			children = (
+				2F5039E628FDFB4C00310191 /* README.md */,
 				2F5BBC6428FC9811002D6EDD /* Packages */,
 				2FCDC91328E0F05000D60775 /* xiezi */,
 				2FCDC92528E0F05100D60775 /* xieziTests */,
