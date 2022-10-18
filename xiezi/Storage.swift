@@ -31,13 +31,20 @@ func SaveStore(notes: [Note]) {
     }
 }
 
+// Load the notes that has been stored in the UserDefaults preference
 func LoadNotes() -> [Note] {
     let json = storage.string(forKey: KEY)?.data(using: .utf8)
     
     if let data = json {
         do {
             let decoder = JSONDecoder()
-            return try decoder.decode([Note].self, from: data)
+            let notes = try decoder.decode([Note].self, from: data)
+            
+            if notes.count == 0 {
+                return [Note.as_default()]
+            }
+            
+            return notes
         } catch {
             print(error)
         }

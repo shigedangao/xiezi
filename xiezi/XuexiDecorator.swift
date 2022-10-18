@@ -37,4 +37,13 @@ struct XuexiDictionary {
         
         return errors
     }
+    
+    func getXuexiLanguageFromSwiftLang(lang: Language) -> XuexiLibLanguage {
+        switch lang {
+        case Language.TraditionalChinese, Language.SimplifiedChinese:
+            return XuexiLibLanguage.Chinese
+        case Language.Laotian:
+            return XuexiLibLanguage.Laotian
+        }
+    }
 }

@@ -106,7 +106,7 @@ final class ModelData: ObservableObject {
     // # Description
     // Delete a note by using the selected index
     func deleteNote() {
-        if notes.count == 0 {
+        if notes.count == 1 {
             return
         }
         
