@@ -34,12 +34,7 @@ struct Generator: View {
                 generated = items
             }
         }
-        .onChange(of: modelData.selected) { _ in
-            if let items = modelData.getSelectedNoteGeneratedItems() {
-                generated = items
-            }
-        }
-        .onChange(of: modelData.getSelectedNote()?.content) { _ in
+        .onChange(of: modelData.notes) { _ in
             if let items = modelData.getSelectedNoteGeneratedItems() {
                 generated = items
             }

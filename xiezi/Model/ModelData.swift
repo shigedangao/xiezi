@@ -73,8 +73,8 @@ final class ModelData: ObservableObject {
         }
         
         notes.insert(Note.as_default(id: id), at: 0)
-        selected = 0
         language = Language.TraditionalChinese
+        self.setSelectedIndex(index: 0)
         // Persist the change to the notes
         SaveStore(notes: notes)
     }

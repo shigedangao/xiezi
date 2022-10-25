@@ -33,6 +33,12 @@ struct Editor: View {
                 content = item.content
             }
         }
+        .onChange(of: modelData.notes) {_ in
+            if let item = modelData.getSelectedNote() {
+                note = item
+                content = item.content
+            }
+        }
         .onChange(of: modelData.selected) {_ in
             if let item = modelData.getSelectedNote() {
                 note = item
