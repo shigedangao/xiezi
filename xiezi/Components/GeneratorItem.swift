@@ -35,6 +35,7 @@ struct GeneratorItem: View {
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
+        .textSelection(.enabled)
     }
 }
 
