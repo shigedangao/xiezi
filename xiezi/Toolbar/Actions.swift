@@ -17,18 +17,18 @@ func showSaveDialog() -> URL? {
     savePanel.title = "Save the generated definitions"
     savePanel.message = "Choose a folder and a name to store the definitions"
     savePanel.nameFieldLabel = "CSV file name:"
-    
+
     let response = savePanel.runModal()
     return response == .OK ? savePanel.url : nil
 }
 
 struct Actions: View {
     @EnvironmentObject var modelData: ModelData
-    
+
     func deleteNote() {
         modelData.deleteNote()
     }
-    
+
     // Share the note content by getting the selected note, getting the url
     // and storing the generated file in the targeted url
     func shareNoteContent() {
@@ -39,12 +39,12 @@ struct Actions: View {
             }
         }
     }
-    
+
     var body: some View {
         Button(action: { deleteNote() }) {
             Image(systemName: "trash")
         }
-        
+
         Button(action: { shareNoteContent() }) {
             Image(systemName: "square.and.arrow.up")
         }

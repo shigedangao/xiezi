@@ -13,24 +13,24 @@ struct GeneratorItem: View {
     var translation: String
     var count: Int
     var color: Color
-    
+
     var body: some View {
         HStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(color)
                 .frame(width: 25, height: 25)
-                        
+
             VStack {
                 Text(character)
                     .font(.title2)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 ItemList(sectionName: "Pronounciation", listString: pronounciation)
-                                
+
                 ItemList(sectionName: "Translation", listString: translation)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        
+
             GeneratorCounter(count: count, color: color)
         }
         .padding()

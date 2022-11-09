@@ -13,7 +13,7 @@ struct NavbarList: View {
     var notes: [Note] {
         modelData.notes
     }
-    
+
     var body: some View {
         List {
             ForEach(Array(notes.enumerated()), id: \.element) { index, data in

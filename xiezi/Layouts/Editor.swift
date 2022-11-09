@@ -9,15 +9,15 @@ import SwiftUI
 
 struct Editor: View {
     @State var content: String = ""
-    @State var note: Note = Note.as_default();
+    @State var note: Note = Note.as_default()
     @EnvironmentObject var modelData: ModelData
-        
+
     var body: some View {
         VStack {
             Text("Scratchpad")
                 .font(.callout)
                 .padding(.top, 10)
-            
+
             TextEditor(text: $content)
                 .background(Color.red)
                 .onChange(of: content) { newContent in

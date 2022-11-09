@@ -9,11 +9,11 @@ import Foundation
 import XuexiPackage
 
 final class ModelData: ObservableObject {
-    @Published var notes: [Note] = LoadNotes()
+    @Published var notes: [Note] = loadNotes()
     @Published var selected: Int = 0
-    @Published var language: Language = Language.TraditionalChinese
+    @Published var language: Language = Language.traditionalChinese
     @Published var isLoaded: Bool = false
-    
+
     // Set Note Textual Content
     //
     // # Description
@@ -24,43 +24,43 @@ final class ModelData: ObservableObject {
             let computedIndex = content.count > 10 ? 10 : content.count - 1
             let startIndex = content.index(content.startIndex, offsetBy: 0)
             let endIndex = content.index(content.startIndex, offsetBy: computedIndex)
-            
+
             notes[selected].title = String(content[startIndex...endIndex])
         }
-        
+
         notes[selected].content = content
         // Persist the change to the notes
-        SaveStore(notes: notes)
+        saveStore(notes: notes)
     }
-    
+
     func generateXuexiDefinitions() {
         let content = notes[selected].content
         let lang = notes[selected].lang
-        
+
         var xuexiLang: XuexiPackage.XuexiLibLanguage
         switch lang {
-        case Language.TraditionalChinese:
+        case Language.traditionalChinese:
             xuexiLang = XuexiPackage.XuexiLibLanguage.Chinese
-        case Language.SimplifiedChinese:
+        case Language.simplifiedChinese:
             xuexiLang = XuexiPackage.XuexiLibLanguage.Chinese
-        case Language.Laotian:
+        case Language.laotian:
             xuexiLang = XuexiPackage.XuexiLibLanguage.Laotian
         }
-        
+
         if isLoaded {
             let res = xuexiDic.dictionary.search_in_dictionaries(xuexiLang, content)
             if let content = res {
                 var generated = XuexiGenerate.fromJSONDictionary(content: content.toString())
                 // loop on the generated and set a color for each value
-                for i in generated.values.indices {
-                    generated.values[i].color = CColor.random()
+                for idx in generated.values.indices {
+                    generated.values[idx].color = CColor.random()
                 }
-                
+
                 notes[selected].generated = generated
             }
         }
     }
-    
+
     // Create a New Note
     //
     // # Description
@@ -71,14 +71,14 @@ final class ModelData: ObservableObject {
         if let first = notes.first {
             id = first.id + 1
         }
-        
+
         notes.insert(Note.as_default(id: id), at: 0)
-        language = Language.TraditionalChinese
+        language = Language.traditionalChinese
         self.setSelectedIndex(index: 0)
         // Persist the change to the notes
-        SaveStore(notes: notes)
+        saveStore(notes: notes)
     }
-    
+
     // Set Language For Note ID
     //
     // # Description
@@ -86,9 +86,9 @@ final class ModelData: ObservableObject {
     func setLanguageForNoteID(language: Language) {
         notes[selected].lang = language
         // Persist the change to the notes
-        SaveStore(notes: notes)
+        saveStore(notes: notes)
     }
-    
+
     // Set Selected Index
     //
     // # Description
@@ -98,9 +98,9 @@ final class ModelData: ObservableObject {
         // set the language dropdown value to the current selected language
         language = notes[selected].lang
         // Persist the change to the notes
-        SaveStore(notes: notes)
+        saveStore(notes: notes)
     }
-    
+
     // Delete a note
     //
     // # Description
@@ -109,32 +109,31 @@ final class ModelData: ObservableObject {
         if notes.count == 1 {
             return
         }
-        
+
         // remove the target note for the selected index
         notes.remove(at: selected)
         // Persist the change to the notes
-        SaveStore(notes: notes)
-        
+        saveStore(notes: notes)
+
         if selected != 0 {
             // downgrade selected value
-            selected = selected - 1
+            selected -= 1
         }
     }
-    
+
     // Getter //
-    
     // Get Selected Note Generated Items
     //
     // # Description
     // Get a dictionary from a selected note
-    func getSelectedNoteGeneratedItems() -> Dictionary<String, XuexiGenerate>? {
+    func getSelectedNoteGeneratedItems() -> [String: XuexiGenerate]? {
         if let data = notes.get(index: selected) {
             return data.generated
         }
-        
+
         return nil
     }
-    
+
     // Get Selected Note
     //
     // # Description
@@ -143,7 +142,7 @@ final class ModelData: ObservableObject {
         if let note = notes.get(index: selected) {
             return note
         }
-        
+
         return nil
     }
 }

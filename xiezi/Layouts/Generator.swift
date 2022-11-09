@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct Generator: View {
-    @State var generated: Dictionary<String, XuexiGenerate> = Dictionary()
+    @State var generated: [String: XuexiGenerate] = Dictionary()
     @EnvironmentObject var modelData: ModelData
-    
+
     var body: some View {
         VStack {
             Text("Generated")
                 .font(.callout)
                 .padding(.top, 10)
-            
+
             List {
                 ForEach(Array(generated.keys), id: \.self) { key in
                     GeneratorItem(
@@ -24,18 +24,20 @@ struct Generator: View {
                         pronounciation: generated[key]!.pronounciation,
                         translation: generated[key]!.translation,
                         count: generated[key]!.count,
-                        color: Color.from_color(cc: generated[key]!.color)
+                        color: Color.from_color(input: generated[key]!.color)
                     )
                 }
             }
         }
         .onAppear {
             if let items = modelData.getSelectedNoteGeneratedItems() {
+                print(items)
                 generated = items
             }
         }
         .onChange(of: modelData.notes) { _ in
             if let items = modelData.getSelectedNoteGeneratedItems() {
+                print(items)
                 generated = items
             }
         }

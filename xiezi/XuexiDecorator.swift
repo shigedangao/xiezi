@@ -13,36 +13,36 @@ let xuexiDic = XuexiDictionary.new()
 
 struct XuexiDictionary {
     var dictionary: DictionaryWrapper
-    
+
     static func new() -> XuexiDictionary {
         return XuexiDictionary(
             dictionary: DictionaryWrapper.init()
         )
     }
-    
+
     // Load the dictionaries within a task group
     // This allow to load the dictionaries concurrently (a bit like task group in Go)
     func loadDictionaries() async throws -> [String] {
-        async let tw: () = await dictionary.load_chinese_dictionary(XuexiCNVersion.Traditional)
-        async let cn: () = await dictionary.load_chinese_dictionary(XuexiCNVersion.Simplified)
-        async let la: () = await dictionary.load_laotian_dictionary()
+        async let twl: () = await dictionary.load_chinese_dictionary(XuexiCNVersion.Traditional)
+        async let cnl: () = await dictionary.load_chinese_dictionary(XuexiCNVersion.Simplified)
+        async let lal: () = await dictionary.load_laotian_dictionary()
 
-        let _ = await [tw, cn, la]
-        
+        _ = await [twl, cnl, lal]
+
         var errors = [String]()
-        
+
         for err in dictionary.has_errors() {
             errors.append(err.as_str().toString())
         }
-        
+
         return errors
     }
-    
+
     func getXuexiLanguageFromSwiftLang(lang: Language) -> XuexiLibLanguage {
         switch lang {
-        case Language.TraditionalChinese, Language.SimplifiedChinese:
+        case Language.traditionalChinese, Language.simplifiedChinese:
             return XuexiLibLanguage.Chinese
-        case Language.Laotian:
+        case Language.laotian:
             return XuexiLibLanguage.Laotian
         }
     }

@@ -10,32 +10,34 @@ import SwiftUI
 struct ToolbarMenu: View {
     @State private var selectedLanguage = "Traditional Chinese"
     @EnvironmentObject var modelData: ModelData
-    
+
     func setLanguage(lang: Language) {
         switch lang {
-        case Language.TraditionalChinese:
+        case Language.traditionalChinese:
                 selectedLanguage = "Traditional Chinese"
-        case Language.SimplifiedChinese:
+        case Language.simplifiedChinese:
                 selectedLanguage = "Simplified Chinese"
-        case Language.Laotian:
+        case Language.laotian:
                 selectedLanguage = "Laotian"
         }
-        
+
         modelData.language = lang
         modelData.setLanguageForNoteID(language: lang)
     }
-    
+
     var body: some View {
         Menu {
-            Button(action: { setLanguage(lang: Language.TraditionalChinese) }) {
+            Button(action: { setLanguage(lang: Language.traditionalChinese) }) {
                 Text("Traditional Chinese")
             }
-            
-            Button(action: { setLanguage(lang: Language.SimplifiedChinese) }) {
+
+            Button(action: { setLanguage(lang: Language.simplifiedChinese) }) {
                 Text("Simplified Chinese")
             }
-            
-            Button(action: { setLanguage(lang: Language.Laotian) }) {
+
+            Button {
+                setLanguage(lang: Language.laotian)
+            } label: {
                 Text("Laotian")
             }
         } label: {

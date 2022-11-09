@@ -4,13 +4,13 @@
 //
 //  Created by Marc Intha on 25/09/2022.
 //
-
+// swiftlint:disable identifier_name
 import Foundation
 
 enum Language: String, Codable {
-    case TraditionalChinese
-    case SimplifiedChinese
-    case Laotian
+    case traditionalChinese
+    case simplifiedChinese
+    case laotian
 }
 
 struct Note: Hashable, Codable, Identifiable {
@@ -19,15 +19,15 @@ struct Note: Hashable, Codable, Identifiable {
     var content: String
     var resume: String
     var lang: Language
-    var generated: Dictionary<String, XuexiGenerate>
-    
+    var generated: [String: XuexiGenerate]
+
     static func as_default(id: Int = 0) -> Note {
         Note(
             id: id,
             title: "新 Note",
             content: "今天我學了...",
             resume: "今天我學",
-            lang: Language.TraditionalChinese,
+            lang: Language.traditionalChinese,
             generated: Dictionary()
         )
     }
@@ -40,11 +40,11 @@ struct XuexiGenerate: Hashable, Codable {
     var translation: String
     var count: Int
     var color: CColor?
-    
-    static func fromJSONDictionary(content: String) -> Dictionary<String, XuexiGenerate> {
+
+    static func fromJSONDictionary(content: String) -> [String: XuexiGenerate] {
         let decoder = JSONDecoder()
         let formatted = content.data(using: .utf8)
-        
+
         if let data = formatted {
             do {
                 return try decoder.decode([String: XuexiGenerate].self, from: data)
@@ -52,7 +52,7 @@ struct XuexiGenerate: Hashable, Codable {
                 print(error)
             }
         }
-        
+
         return Dictionary()
     }
 }
@@ -61,7 +61,7 @@ struct CColor: Hashable, Codable {
     var red: Double
     var green: Double
     var blue: Double
-    
+
     static func random() -> CColor {
         return CColor(
             red: Double.random(in: 0.5...1),

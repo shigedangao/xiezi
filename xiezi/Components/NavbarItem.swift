@@ -12,9 +12,9 @@ struct NavbarItem: View {
     var title: String
     var resume: String
     var lang: Language
-    
+
     let selectedBackground = Color(red: 255 / 255, green: 213 / 255, blue: 46 / 255, opacity: 0.6)
-    
+
     var body: some View {
         VStack {
             Text(title)
@@ -22,19 +22,19 @@ struct NavbarItem: View {
                 .padding(.top, 10.0)
                 .multilineTextAlignment(.leading)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
+
             Text(resume)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
+
             Spacer()
                 .frame(maxHeight: 8.0)
-            
+
             Text(lang.rawValue)
                 .padding(.horizontal)
                 .background(Color.blue)
                 .cornerRadius(40)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
+
             Divider()
         }
         .padding(.leading, 10)
@@ -51,7 +51,7 @@ struct NavbarItem_Previews: PreviewProvider {
             isSelect: .constant(true),
             title: "Foo",
             resume: "foo",
-            lang: Language.Laotian
+            lang: Language.laotian
         )
     }
 }

@@ -18,7 +18,7 @@ let storage = UserDefaults.standard
 var jsonStorage = storage.string(forKey: KEY)
 
 // Save the store in UserDefault to persist the note that has been created
-func SaveStore(notes: [Note]) {
+func saveStore(notes: [Note]) {
     // conver the notes array into a json file
     do {
         let jsonData = try JSONEncoder().encode(notes)
@@ -32,23 +32,23 @@ func SaveStore(notes: [Note]) {
 }
 
 // Load the notes that has been stored in the UserDefaults preference
-func LoadNotes() -> [Note] {
+func loadNotes() -> [Note] {
     let json = storage.string(forKey: KEY)?.data(using: .utf8)
-    
+
     if let data = json {
         do {
             let decoder = JSONDecoder()
             let notes = try decoder.decode([Note].self, from: data)
-            
+
             if notes.count == 0 {
                 return [Note.as_default()]
             }
-            
+
             return notes
         } catch {
             print(error)
         }
     }
-    
+
     return [Note.as_default()]
 }

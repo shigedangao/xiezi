@@ -10,7 +10,7 @@ import SwiftUI
 struct GeneratorCounter: View {
     var count: Int
     var color: Color
-    
+
     var body: some View {
         HStack {
             Text("Founded")
@@ -18,7 +18,7 @@ struct GeneratorCounter: View {
                 Circle()
                     .stroke(color, lineWidth: 3.0)
                     .frame(width: 25, height: 25)
-                
+
                 Text(String(count))
                     .foregroundColor(color)
             }

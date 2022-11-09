@@ -11,11 +11,11 @@ struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     @State var xuexiError: LocalizedError?
     @State var showAlert = false
-    
+
     var body: some View {
         NavigationView {
             NavbarList()
-                            
+
             Editor()
             Generator()
                 .toolbar {
@@ -31,7 +31,7 @@ struct ContentView: View {
                 if !errs.isEmpty {
                     throw errs[0]
                 }
-                
+
                 modelData.isLoaded = true
             } catch {
                 xuexiError = error.localizedDescription
