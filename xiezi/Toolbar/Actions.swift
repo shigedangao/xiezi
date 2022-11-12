@@ -41,11 +41,11 @@ struct Actions: View {
     }
 
     var body: some View {
-        Button(action: { deleteNote() }) {
+        Button(action: deleteNote) {
             Image(systemName: "trash")
         }
 
-        Button(action: { shareNoteContent() }) {
+        Button(action: shareNoteContent) {
             Image(systemName: "square.and.arrow.up")
         }
     }

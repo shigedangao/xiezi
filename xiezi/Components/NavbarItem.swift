@@ -11,6 +11,7 @@ struct NavbarItem: View {
     @Binding var isSelect: Bool
     var title: String
     var resume: String
+    var date: String?
     var lang: Language
 
     let selectedBackground = Color(red: 255 / 255, green: 213 / 255, blue: 46 / 255, opacity: 0.6)
@@ -26,12 +27,17 @@ struct NavbarItem: View {
             Text(resume)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
+            if let dateUnwrap = date {
+                Text(dateUnwrap)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+
             Spacer()
                 .frame(maxHeight: 8.0)
 
-            Text(lang.rawValue)
+            Text(lang.as_str(s: lang))
                 .padding(.horizontal)
-                .background(Color.blue)
+                .background(Color.secondaryBackground)
                 .cornerRadius(40)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -51,6 +57,7 @@ struct NavbarItem_Previews: PreviewProvider {
             isSelect: .constant(true),
             title: "Foo",
             resume: "foo",
+            date: "",
             lang: Language.laotian
         )
     }

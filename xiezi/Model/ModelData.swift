@@ -21,11 +21,16 @@ final class ModelData: ObservableObject {
     // of the selected note
     func setNoteTextualContent(content: String) {
         if content.count > 0 {
-            let computedIndex = content.count > 10 ? 10 : content.count - 1
-            let startIndex = content.index(content.startIndex, offsetBy: 0)
-            let endIndex = content.index(content.startIndex, offsetBy: computedIndex)
+            let titleComputedIndex = content.count > 10 ? 10 : content.count - 1
+            let resumeComputeIndex = content.count > 15 ? 15 : content.count - 1
 
-            notes[selected].title = String(content[startIndex...endIndex])
+            let startIndex = content.index(content.startIndex, offsetBy: 0)
+
+            let titleEndIndex = content.index(content.startIndex, offsetBy: titleComputedIndex)
+            let resumeEndIndex = content.index(content.startIndex, offsetBy: resumeComputeIndex)
+
+            notes[selected].title = String(content[startIndex...titleEndIndex])
+            notes[selected].resume = String(content[startIndex...resumeEndIndex])
         }
 
         notes[selected].content = content
@@ -33,6 +38,8 @@ final class ModelData: ObservableObject {
         saveStore(notes: notes)
     }
 
+    // Generate Xuexi Definition
+    // Call the xuexi library to generate the definition for the targeted language
     func generateXuexiDefinitions() {
         let content = notes[selected].content
         let lang = notes[selected].lang

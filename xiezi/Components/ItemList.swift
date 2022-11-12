@@ -21,7 +21,7 @@ struct ItemList: View {
                 .font(.title3)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            ForEach(Array(list.enumerated()), id: \.offset) { offset, item in
+            ForEach(Array(list.enumerated()), id: \.offset) { _, item in
                 Text("- \(item.trimmingCharacters(in: .whitespaces))")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 10)

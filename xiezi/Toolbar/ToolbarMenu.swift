@@ -27,13 +27,17 @@ struct ToolbarMenu: View {
 
     var body: some View {
         Menu {
-            Button(action: { setLanguage(lang: Language.traditionalChinese) }) {
+            Button(action: {
+                setLanguage(lang: Language.traditionalChinese)
+            }, label: {
                 Text("Traditional Chinese")
-            }
+            })
 
-            Button(action: { setLanguage(lang: Language.simplifiedChinese) }) {
+            Button(action: {
+                setLanguage(lang: Language.simplifiedChinese)
+            }, label: {
                 Text("Simplified Chinese")
-            }
+            })
 
             Button {
                 setLanguage(lang: Language.laotian)

@@ -11,6 +11,18 @@ enum Language: String, Codable {
     case traditionalChinese
     case simplifiedChinese
     case laotian
+
+    // As Str give a string representation of the enum
+    func as_str(s: Self) -> String {
+        switch s {
+        case .traditionalChinese:
+            return "Traditional chinese"
+        case .simplifiedChinese:
+            return "Simplified chinese"
+        case .laotian:
+            return "Laotian"
+        }
+    }
 }
 
 struct Note: Hashable, Codable, Identifiable {
@@ -19,6 +31,7 @@ struct Note: Hashable, Codable, Identifiable {
     var content: String
     var resume: String
     var lang: Language
+    var date: String?
     var generated: [String: XuexiGenerate]
 
     static func as_default(id: Int = 0) -> Note {
@@ -28,6 +41,7 @@ struct Note: Hashable, Codable, Identifiable {
             content: "今天我學了...",
             resume: "今天我學",
             lang: Language.traditionalChinese,
+            date: Date().formatted(),
             generated: Dictionary()
         )
     }

@@ -21,6 +21,7 @@ struct NavbarList: View {
                     isSelect: .constant(index == modelData.selected ? true : false),
                     title: data.title,
                     resume: data.resume,
+                    date: data.date,
                     lang: data.lang
                 )
                 .onTapGesture {

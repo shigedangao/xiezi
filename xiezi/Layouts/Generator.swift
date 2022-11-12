@@ -31,13 +31,11 @@ struct Generator: View {
         }
         .onAppear {
             if let items = modelData.getSelectedNoteGeneratedItems() {
-                print(items)
                 generated = items
             }
         }
         .onChange(of: modelData.notes) { _ in
             if let items = modelData.getSelectedNoteGeneratedItems() {
-                print(items)
                 generated = items
             }
         }
