@@ -14,6 +14,15 @@ struct NavbarList: View {
         modelData.notes
     }
 
+    // Toggle the sidebar
+    // From https://sarunw.com/posts/how-to-toggle-sidebar-in-macos/
+    private func toggleSidebar() {
+        #if os(iOS)
+        #else
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        #endif
+    }
+
     var body: some View {
         List {
             ForEach(Array(notes.enumerated()), id: \.element) { index, data in
@@ -30,6 +39,10 @@ struct NavbarList: View {
             }
         }
         .toolbar {
+            ToolbarItem {
+                Button(action: toggleSidebar, label: {Image(systemName: "sidebar.leading")})
+            }
+
             ToolbarItem {
                 Button(action: modelData.createNewNote, label: {Image(systemName: "square.and.pencil")})
             }
