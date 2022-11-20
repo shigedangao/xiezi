@@ -12,6 +12,7 @@ struct GeneratorItem: View {
     var pronounciation: String
     var translation: String
     var count: Int
+    var level: String?
     var color: Color
 
     var body: some View {
@@ -21,13 +22,23 @@ struct GeneratorItem: View {
                 .frame(width: 25, height: 25)
 
             VStack {
-                Text(character)
-                    .font(.title2)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                HStack {
+                    Text(character)
+                        .font(.title2)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    if let wordLevel = level {
+                        Text(wordLevel)
+                            .font(.title3)
+                            .padding(4)
+                            .foregroundColor(color)
+                    }
+                }
 
                 ItemList(sectionName: "Pronounciation", listString: pronounciation)
 
                 ItemList(sectionName: "Translation", listString: translation)
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 

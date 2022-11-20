@@ -58,6 +58,7 @@ final class ModelData: ObservableObject {
             let res = xuexiDic.dictionary.search_in_dictionaries(xuexiLang, content)
             if let content = res {
                 var generated = XuexiGenerate.fromJSONDictionary(content: content.toString())
+
                 // loop on the generated and set a color for each value
                 for idx in generated.values.indices {
                     generated.values[idx].color = CColor.random()

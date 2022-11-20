@@ -53,6 +53,7 @@ struct XuexiGenerate: Hashable, Codable {
     var pronounciation: String
     var translation: String
     var count: Int
+    var level: String?
     var color: CColor?
 
     static func fromJSONDictionary(content: String) -> [String: XuexiGenerate] {

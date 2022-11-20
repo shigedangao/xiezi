@@ -24,6 +24,7 @@ struct Generator: View {
                         pronounciation: generated[key]!.pronounciation,
                         translation: generated[key]!.translation,
                         count: generated[key]!.count,
+                        level: generated[key]!.level,
                         color: Color.from_color(input: generated[key]!.color)
                     )
                 }
