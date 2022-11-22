@@ -30,6 +30,7 @@ struct Generator: View {
                 }
             }
         }
+        .background(Color.secondaryBackground)
         .onAppear {
             if let items = modelData.getSelectedNoteGeneratedItems() {
                 generated = items

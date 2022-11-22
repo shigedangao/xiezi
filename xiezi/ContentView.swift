@@ -17,6 +17,7 @@ struct ContentView: View {
             NavbarList()
 
             Editor()
+                .frame(minWidth: 500)
             Generator()
                 .toolbar {
                     ToolbarItemGroup {
@@ -24,6 +25,7 @@ struct ContentView: View {
                         Actions()
                     }
                 }
+                .frame(minWidth: 500)
         }
         .task {
             do {

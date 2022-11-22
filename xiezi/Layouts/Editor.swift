@@ -19,7 +19,6 @@ struct Editor: View {
                 .padding(.top, 10)
 
             TextEditor(text: $content)
-                .background(Color.red)
                 .onChange(of: content) { newContent in
                     modelData.setNoteTextualContent(content: newContent)
                     modelData.generateXuexiDefinitions()
